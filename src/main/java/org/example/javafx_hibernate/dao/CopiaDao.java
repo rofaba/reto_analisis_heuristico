@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface CopiaDao {
     List<Copia> listarPorUsuario(Usuario usuario) throws Exception;
+
+    void eliminarCopia(Integer id);
 }

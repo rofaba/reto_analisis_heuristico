@@ -36,4 +36,18 @@ public class CopiaRepository implements CopiaDao {
 
         return resultado;
     }
+    public void eliminarCopia(Integer id) {
+        Transaction tx = null;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            tx = session.beginTransaction();
+            Copia copia = session.get(Copia.class, id);
+            if (copia != null) {
+                session.delete(copia);
+            }
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null) tx.rollback();
+            e.printStackTrace();
+        }
+    }
 }

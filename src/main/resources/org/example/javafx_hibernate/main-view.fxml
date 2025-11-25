@@ -29,6 +29,13 @@
             <TableColumn fx:id="colSoporte" prefWidth="75.0" text="Soporte" />
         </columns>
       </TableView>
-   </center>
 
+   </center>
+    <ToolBar prefHeight="40.0" BorderPane.alignment="CENTER">
+        <items>
+            <Button text="Añadir copia" onAction="#onNuevaCopia"/>
+            <Button text="Editar copia" onAction="#onEditarCopia"/>
+            <Button text="Eliminar copia" onAction="#onEliminarCopia"/>
+        </items>
+    </ToolBar>
 </BorderPane>
