@@ -9,6 +9,8 @@ import org.example.javafx_hibernate.MainApp;
 import org.example.javafx_hibernate.entity.Usuario;
 import org.example.javafx_hibernate.service.AuthService;
 
+import java.io.IOException;
+
 public class LoginController {
 
     @FXML
@@ -29,30 +31,24 @@ public class LoginController {
     }
 
     @FXML
-    private void onLogin(ActionEvent event) {
+    public void onLogin() {
         String usuario = txtUsuario.getText();
         String password = txtPassword.getText();
 
-        if (usuario == null || usuario.isBlank() ||
-                password == null || password.isBlank()) {
-            lblMensaje.setText("Usuario y contraseña son obligatorios.");
-            return;
-        }
-
-        boolean ok = authService.login(usuario, password);
-
-        if (ok) {
+        if (MainApp.getAuthService().login(usuario, password)) {
             try {
-                Usuario u = authService.getUsuarioActual();
-                System.out.println("Login correcto: " + u.getNombreUsuario());
-                lblMensaje.setText("");
-                MainApp.setRoot("main-view");
-            } catch (Exception e) {
+                // VERIFICAR ROL
+                if (MainApp.getAuthService().esAdmin()) {
+                    MainApp.setRoot("admin-view"); // Vista nueva
+                } else {
+                    MainApp.setRoot("main-view");  // Vista normal
+                }
+            } catch (IOException e) {
                 e.printStackTrace();
-                lblMensaje.setText("Error al cargar la pantalla principal.");
+                lblMensaje.setText("Error al cargar la vista.");
             }
         } else {
-            lblMensaje.setText("Credenciales incorrectas.");
+            lblMensaje.setText("Usuario o contraseña incorrectos");
         }
     }
 }

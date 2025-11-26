@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+
+<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.javafx_hibernate.ui.controller.AdminController">
+
+    <top>
+        <ToolBar>
+            <Label text="Panel de Administración - Películas" style="-fx-font-weight: bold;" />
+            <Pane HBox.hgrow="ALWAYS" />
+            <Label fx:id="lblUsuario" text="Admin" style="-fx-padding: 0 10 0 0;" />
+            <Button onAction="#onCerrarSesion" text="Cerrar sesión" />
+        </ToolBar>
+    </top>
+
+    <center>
+        <TableView fx:id="tvPeliculas" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="colTitulo" prefWidth="200.0" text="Título" />
+                <TableColumn fx:id="colDirector" prefWidth="150.0" text="Director" />
+                <TableColumn fx:id="colAnio" prefWidth="80.0" text="Año" />
+                <TableColumn fx:id="colGenero" prefWidth="100.0" text="Género" />
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            </columnResizePolicy>
+        </TableView>
+    </center>
+
+    <bottom>
+        <ToolBar prefHeight="40.0" BorderPane.alignment="CENTER">
+            <items>
+                <Button text="Nueva Película" onAction="#onNuevaPelicula"/>
+            </items>
+        </ToolBar>
+    </bottom>
+
+</BorderPane>
