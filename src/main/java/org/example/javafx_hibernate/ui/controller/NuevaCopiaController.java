@@ -45,7 +45,10 @@ public class NuevaCopiaController {
         );
 
     }
-
+/*    * Maneja el evento de guardar una copia.
+        Valida los campos, busca la película y crea o actualiza la copia en la base de datos.
+        También maneja la lógica de aumentar cantidad si la copia ya existe.
+ */
     @FXML
     private void onGuardar() {
         String titulo = txtTitulo.getText() != null ? txtTitulo.getText().trim() : "";
@@ -146,12 +149,14 @@ public class NuevaCopiaController {
         }
     }
 
-
+    /*    * Maneja el evento de cancelar la operación y cerrar la ventana.
+  */
     @FXML
     private void onCancelar() {
         cerrarVentana();
     }
-
+/*    * Cierra la ventana actual.
+  */
     private void cerrarVentana() {
         Stage stage = (Stage) txtTitulo.getScene().getWindow();
         stage.close();
@@ -164,6 +169,10 @@ public class NuevaCopiaController {
         alert.showAndWait();
     }
 
+    /*    * Establece la copia que se va a editar.
+        Rellena los campos con los datos de la copia proporcionada.
+        @param copia La copia a editar.
+  */
     public void setCopiaEnEdicion(Copia copia) {
         this.copiaEnEdicion = copia;
 

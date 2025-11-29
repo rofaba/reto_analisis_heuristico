@@ -1,10 +1,8 @@
-A muy alto nivel, la app debe:
+La app debe:
 
 Login
 
 Usuario se autentica con nombre_usuario + contraseña.
-
-Si es admin podrá añadir películas al catálogo.
 
 Pantalla principal (después de login)
 
@@ -20,7 +18,7 @@ Editar copia (estado, soporte).
 
 Eliminar copia.
 
-(Si es admin) Añadir nueva película.
+(Si es admin) Añadir nueva película a DB.
 
 Ver detalle (copia + película) en ventana aparte.
 
@@ -32,13 +30,11 @@ Nadie puede ver ni modificar copias de otro usuario.
 
 No se elimina la película, solo la copia.
 
-1. Roadmap de trabajo
-
-Te propongo este orden:
+Roadmap de trabajo
 
 Base de datos y modelo (SQL + Entities Hibernate)
 a) Script MySQL.
-b) Clases Usuario, Pelicula, Copia anotadas con JPA.
+b) Clases Usuario, Pelicula, Copia.
 
 Configurar Hibernate
 
@@ -70,7 +66,9 @@ Pantalla principal MainView + MainController con TableView.
 
 Ventana detalle DetalleCopiaView + DetalleCopiaController.
 
-Ventanas para alta/edición de copias y alta de películas.
+Ventanas para alta/edición de copias y alta de copias.
+
+Funciones administrador.
 
 Remates
 
@@ -78,6 +76,6 @@ Validaciones básicas (campos vacíos, mensajes de error).
 
 Javadoc.
 
-Pequeñas mejoras (filtros, ordenación, etc.).
+Mejoras (Imagen películas, fondos de pantalla, actividad botones).
 
 Subir a GitHub.

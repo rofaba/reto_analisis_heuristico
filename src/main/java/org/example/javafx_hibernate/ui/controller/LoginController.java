@@ -1,18 +1,19 @@
 package org.example.javafx_hibernate.ui.controller;
 
-import javafx.event.ActionEvent;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import org.example.javafx_hibernate.MainApp;
-import org.example.javafx_hibernate.entity.Usuario;
 import org.example.javafx_hibernate.service.AuthService;
 
 import java.io.IOException;
 
 public class LoginController {
-
+/*    * Controlador para la vista de login.
+        Gestiona la autenticación de usuarios y la navegación a vistas según el rol.
+ */
     @FXML
     private TextField txtUsuario;
 

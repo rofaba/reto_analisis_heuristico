@@ -1,7 +1,8 @@
 package org.example.javafx_hibernate.entity;
 
 import javax.persistence.*;
-
+/*    * Entidad que representa una copia de una película en el sistema.
+ */
 @Entity
 @Table(name = "copia")
 public class Copia {

@@ -9,6 +9,9 @@ import java.util.List;
 
 public class PeliculaRepository implements PeliculaDao {
 
+    /*
+     * Implementación del DAO para la entidad Pelicula.
+     */
     @Override
     public void guardar(Pelicula pelicula) {
         Transaction tx = null;
@@ -21,7 +24,9 @@ public class PeliculaRepository implements PeliculaDao {
             e.printStackTrace();
         }
     }
-
+/*
+     * Lista todas las películas en la base de datos.
+     */
     @Override
     public List<Pelicula> listarTodas() {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {

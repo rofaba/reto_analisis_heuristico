@@ -8,7 +8,8 @@ import java.util.Set;
 @Entity
 @Table(name = "pelicula")
 public class Pelicula {
-
+/*    * Entidad que representa una película en el sistema.
+ */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -16,7 +17,7 @@ public class Pelicula {
     private String titulo;
     private String genero;
     private Integer anio;
-    private String imagen; // ruta relativa dentro de resources, p.ej. "/images/peliculas/inception.jpg"
+    private String imagen; // ruta relativa dentro de resources
 
     @Column(columnDefinition = "TEXT")
     private String descripcion;

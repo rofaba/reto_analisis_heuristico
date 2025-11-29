@@ -7,6 +7,9 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 public class UsuarioRepository implements UsuarioDao {
+/*
+     * Implementación del DAO para la entidad Usuario.
+     */
 
     @Override
     public Usuario buscarPorNombreYPassword(String nombreUsuario, String password) throws Exception {

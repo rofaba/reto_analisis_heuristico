@@ -14,15 +14,10 @@ import org.example.javafx_hibernate.dao.CopiaDao;
 import org.example.javafx_hibernate.dao.CopiaRepository;
 import org.example.javafx_hibernate.entity.Copia;
 import org.example.javafx_hibernate.entity.Usuario;
-
 import java.io.IOException;
 import java.util.List;
-import java.util.Optional;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Modality;
-import javafx.stage.Stage;
+
 
 
 public class MainController {
@@ -96,7 +91,9 @@ public class MainController {
         );
 
     }
-
+/*    * Carga las copias asociadas al usuario dado y las muestra en la tabla.
+     * @param usuario El usuario cuyas copias se cargarán.
+ */
     protected void cargarCopias(Usuario usuario) {
         try {
             List<Copia> copias = copiaDao.listarPorUsuario(usuario);
@@ -108,7 +105,8 @@ public class MainController {
 
         }
     }
-
+/*    * Cierra la sesión del usuario actual y vuelve a la vista de login.
+ */
     @FXML
     private void onCerrarSesion() throws Exception {
         MainApp.getAuthService().logout();
@@ -134,6 +132,10 @@ public class MainController {
             mostrarAlerta("Error al abrir el detalle de la copia.");
         }
     }
+
+    /*    * Elimina la copia seleccionada después de confirmar con el usuario.
+     * Muestra una alerta si no hay ninguna copia seleccionada o si ocurre un error.
+ */
     @FXML
     private void onEliminarCopia() {
         Copia seleccionada = tvCopias.getSelectionModel().getSelectedItem();
@@ -159,6 +161,9 @@ public class MainController {
         }
     }
 
+    /*    * Muestra una alerta de información con el mensaje proporcionado.
+     * @param mensaje El mensaje a mostrar en la alerta.
+ */
     private void mostrarAlerta(String mensaje) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Información");
@@ -166,6 +171,10 @@ public class MainController {
         alert.setContentText(mensaje);
         alert.showAndWait();
     }
+
+    /*    * Abre la ventana para crear una nueva copia.
+     * Después de cerrar la ventana, se espera que se haya llamado a cargarCopias() desde el controlador hijo.
+ */
     @FXML
     private void onNuevaCopia() {
         try {
@@ -190,6 +199,9 @@ public class MainController {
         }
     }
 
+/*    * Abre la ventana para editar la copia seleccionada.
+     * Muestra una alerta si no hay ninguna copia seleccionada o si ocurre un error.
+ */
     @FXML
     private void onEditarCopia() {
         Copia seleccionada = tvCopias.getSelectionModel().getSelectedItem();

@@ -5,6 +5,10 @@ import org.example.javafx_hibernate.entity.Usuario;
 
 import java.util.List;
 
+/*
+    * Interfaz DAO para la entidad Copia.
+ */
+
 public interface CopiaDao {
     List<Copia> listarPorUsuario(Usuario usuario) throws Exception;
 

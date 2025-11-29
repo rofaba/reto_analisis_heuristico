@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
+
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -22,7 +22,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class AdminController implements Initializable {
-
+/*    * Controlador para la vista de administrador.
+        Permite gestionar películas y cerrar sesión.
+ */
     @FXML private Label lblUsuario;
     @FXML private TableView<Pelicula> tvPeliculas;
     @FXML private TableColumn<Pelicula, String> colTitulo;
@@ -44,11 +46,14 @@ public class AdminController implements Initializable {
 
         cargarPeliculas();
     }
-
+/*    * Carga las películas desde la base de datos y las muestra en la tabla.
+ */
     private void cargarPeliculas() {
         tvPeliculas.setItems(FXCollections.observableArrayList(peliculaDao.listarTodas()));
     }
-
+/*    * Abre la ventana para agregar una nueva película.
+        Después de cerrar la ventana, refresca la tabla de películas.
+ */
     @FXML
     public void onNuevaPelicula() {
         try {
@@ -66,7 +71,8 @@ public class AdminController implements Initializable {
             e.printStackTrace();
         }
     }
-
+/*    * Cierra la sesión del usuario actual y vuelve a la vista de login.
+ */
     @FXML
     public void onCerrarSesion() {
         MainApp.getAuthService().logout();

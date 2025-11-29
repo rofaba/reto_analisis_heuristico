@@ -11,6 +11,10 @@ import java.util.List;
 
 public class CopiaRepository implements CopiaDao {
 
+    /*
+        * Lista todas las copias asociadas a un usuario específico, incluyendo los detalles de la película relacionada.
+     */
+
     @Override
     public List<Copia> listarPorUsuario(Usuario usuario) throws Exception {
         Transaction tx = null;
@@ -36,6 +40,10 @@ public class CopiaRepository implements CopiaDao {
 
         return resultado;
     }
+    /*
+        * Elimina una copia por su ID. Si la cantidad es mayor a 1, decrementa la cantidad en lugar de eliminarla.
+     */
+    @Override
     public void eliminarCopia(Integer id) {
         Transaction tx = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {

@@ -8,7 +8,9 @@ import java.util.Set;
 @Entity
 @Table(name = "usuario")
 public class Usuario {
-
+/*
+    * Entidad que representa un usuario en el sistema.
+*/
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

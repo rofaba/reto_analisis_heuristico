@@ -29,6 +29,9 @@ public class NuevaPeliculaController implements Initializable {
         spAnio.setValueFactory(valueFactory);
     }
 
+/*    * Maneja el evento de guardar una nueva película.
+        Valida los campos y guarda la película en la base de datos.
+ */
     @FXML
     public void onGuardar() {
         if (txtTitulo.getText().isEmpty() || txtDirector.getText().isEmpty()) {
@@ -60,6 +63,12 @@ public class NuevaPeliculaController implements Initializable {
         Stage stage = (Stage) txtTitulo.getScene().getWindow();
         stage.close();
     }
+
+
+/*    * Muestra una alerta con el título y mensaje proporcionados.
+     * @param titulo El título de la alerta.
+     * @param mensaje El mensaje a mostrar en la alerta.
+ */
 
     private void mostrarAlerta(String titulo, String mensaje) {
         Alert alert = new Alert(Alert.AlertType.ERROR);

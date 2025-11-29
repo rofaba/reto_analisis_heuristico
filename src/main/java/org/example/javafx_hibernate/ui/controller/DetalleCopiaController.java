@@ -32,6 +32,10 @@ public class DetalleCopiaController {
 
     private Copia copia;
 
+    /*    * Establece la copia cuya información se mostrará en la vista.
+     * Actualiza las etiquetas y la imagen según los datos de la copia y su película asociada.
+     */
+
     public void setCopia(Copia copia) {
         this.copia = copia;
 
@@ -54,9 +58,12 @@ public class DetalleCopiaController {
         Stage stage = (Stage) lblTitulo.getScene().getWindow();
         stage.close();
     }
+/*    * Carga y muestra la imagen de la película asociada a la copia.
+     * Si no hay imagen o ocurre un error, se muestra una imagen vacía.
+     */
 
     private void cargarImagenPelicula(Pelicula peli) {
-        String ruta = peli.getImagen();   // p.ej. "/images/peliculas/inception.jpg"
+        String ruta = peli.getImagen();   // ruta relativa dentro de resources
 
         if (ruta != null && !ruta.isBlank()) {
             try {
@@ -67,7 +74,7 @@ public class DetalleCopiaController {
                     return;
                 }
 
-                Image img = new Image(is);   // ✅ aquí solo va el InputStream
+                Image img = new Image(is);   // InputStream
                 ivImagen.setImage(img);
 
             } catch (Exception e) {
