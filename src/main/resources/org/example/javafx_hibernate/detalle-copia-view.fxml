@@ -21,7 +21,7 @@
         <VBox spacing="10.0"
               alignment="CENTER"
               style="-fx-background-color: rgba(255,255,255,0.9);
-                     -fx-padding: 20;
+                     -fx-padding: 10;
                      -fx-background-radius: 5;">
             <ImageView fx:id="ivImagen"
                        fitWidth="180"
@@ -44,7 +44,7 @@
         <GridPane hgap="10" vgap="8"
                   style="-fx-background-color: rgba(255,255,255,0.9);
                          -fx-background-radius: 8;
-                         -fx-padding: 15;">
+                         -fx-padding: 10;">
             <padding>
                 <Insets top="10" right="10" bottom="10" left="10"/>
             </padding>

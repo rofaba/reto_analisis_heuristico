@@ -13,10 +13,23 @@
             fx:controller="org.example.javafx_hibernate.ui.controller.AdminController">
 
     <top>
-        <ToolBar>
-            <Label text="Panel de Administración - Películas" style="-fx-font-weight: bold;" />
-            <Pane HBox.hgrow="ALWAYS" />
-            <Label fx:id="lblUsuario" text="Admin" style="-fx-padding: 0 10 0 0;" />
+        <ToolBar
+                style="-fx-background-image: url('/images/fondos/2358.jpg');
+                   -fx-background-size: cover;
+                   -fx-background-position: center center;
+                    -fx-background-repeat: no-repeat;
+                    -fx-padding: 4;">
+            <Label text="Panel de Administración - Películas"
+                     style="-fx-background-color: rgba(255,255,255,0.9);
+                        -fx-padding: 10;
+                        -fx-background-radius: 5;"
+                    />
+            <Pane HBox.hgrow="ALWAYS">
+            </Pane>
+            <Label fx:id="lblUsuario" text="Admin"
+                   style="-fx-background-color: rgba(255,255,255,0.9);
+                        -fx-padding: 10;
+                        -fx-background-radius: 5;" />
             <Button onAction="#onCerrarSesion" text="Cerrar sesión" />
         </ToolBar>
     </top>
@@ -36,7 +49,12 @@
     </center>
 
     <bottom>
-        <ToolBar prefHeight="40.0" BorderPane.alignment="CENTER">
+        <ToolBar prefHeight="40.0" BorderPane.alignment="CENTER"
+                 style="-fx-background-image: url('/images/fondos/2358.jpg');
+                    -fx-background-size: cover;
+                    -fx-background-position: center center;
+                    -fx-background-repeat: no-repeat;
+                    -fx-padding: 4;">
             <items>
                 <Button text="Nueva Película" onAction="#onNuevaPelicula"/>
             </items>

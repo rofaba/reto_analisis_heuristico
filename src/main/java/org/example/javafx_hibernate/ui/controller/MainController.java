@@ -46,6 +46,15 @@ public class MainController {
     private TableColumn<Copia, Integer> colCantidad;
 
 
+    @FXML
+    private Button btnNuevaCopia;
+
+    @FXML
+    private Button btnEditarCopia;
+
+    @FXML
+    private Button btnEliminarCopia;
+
     private final CopiaDao copiaDao = new CopiaRepository();
 
     @FXML
@@ -78,6 +87,13 @@ public class MainController {
                 }
             }
         });
+        btnEditarCopia.disableProperty().bind(
+                tvCopias.getSelectionModel().selectedItemProperty().isNull()
+        );
+
+        btnEliminarCopia.disableProperty().bind(
+                tvCopias.getSelectionModel().selectedItemProperty().isNull()
+        );
 
     }
 
@@ -133,7 +149,7 @@ public class MainController {
 
         if (confirm.showAndWait().orElse(ButtonType.CANCEL) == ButtonType.OK) {
             try {
-                copiaDao.eliminarCopia(seleccionada.getId());  // ← usamos TU método
+                copiaDao.eliminarCopia(seleccionada.getId());
                 Usuario u = MainApp.getAuthService().getUsuarioActual();
                 cargarCopias(u); // refrescamos la tabla
             } catch (Exception e) {
@@ -159,15 +175,14 @@ public class MainController {
             Parent root = loader.load();
 
             NuevaCopiaController controller = loader.getController();
-            controller.setMainController(this); // Pasar referencia para recarga
+            controller.setMainController(this);
 
             Stage stage = new Stage();
             stage.setTitle("Nueva copia");
             stage.setScene(new Scene(root));
             stage.initOwner(tvCopias.getScene().getWindow());
-            // Usar showAndWait() para bloquear la ventana principal si es un diálogo modal
             stage.initModality(Modality.WINDOW_MODAL);
-            stage.showAndWait(); // Al cerrar, el diálogo ya habrá llamado a cargarCopias()
+            stage.showAndWait(); // Al cerrar, se habrá llamado a cargarCopias()
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -189,14 +204,9 @@ public class MainController {
             );
             Parent root = loader.load();
 
-            // 1. Obtener controller del diálogo (Debe ser NuevaCopiaController)
             NuevaCopiaController controller = loader.getController();
-
-            // 2. Establecer la referencia al MainController
             controller.setMainController(this);
-
-            // 3. Pasar la copia a editar al controlador
-            controller.setCopiaEnEdicion(seleccionada);  // Este es el método correcto
+            controller.setCopiaEnEdicion(seleccionada); // Pasar la copia seleccionada para edición
 
             Stage stage = new Stage();
             stage.setTitle("Editar copia");
@@ -204,8 +214,7 @@ public class MainController {
             stage.initOwner(tvCopias.getScene().getWindow());
             stage.initModality(Modality.WINDOW_MODAL);
 
-            // Usar showAndWait() para que el MainController espere a que se cierre la edición
-            stage.showAndWait();
+           stage.showAndWait();
 
         } catch (Exception e) {
             e.printStackTrace();
