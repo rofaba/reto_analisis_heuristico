@@ -26,6 +26,8 @@ public class DetalleCopiaController {
     private Label lblSoporte;
     @FXML
     private ImageView ivImagen;
+    @FXML
+    private Label lblImagenNoDisponible;
 
     @FXML
     private Label lblCantidad;
@@ -71,6 +73,7 @@ public class DetalleCopiaController {
                 if (is == null) {
                     System.out.println("No se encontró la imagen en: " + ruta);
                     ivImagen.setImage(null);
+                    lblImagenNoDisponible.setVisible(true); //mostramos al UI que no tenemos la imagen
                     return;
                 }
 

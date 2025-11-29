@@ -18,6 +18,7 @@ public class NuevaPeliculaController implements Initializable {
     @FXML private Spinner<Integer> spAnio;
     @FXML private TextField txtGenero;
     @FXML private TextArea txtDescripcion;
+    @FXML private TextField txtImagen;
 
     private final PeliculaDao peliculaDao = new PeliculaRepository();
 
@@ -45,6 +46,15 @@ public class NuevaPeliculaController implements Initializable {
         pelicula.setAnio(spAnio.getValue());
         pelicula.setGenero(txtGenero.getText());
         pelicula.setDescripcion(txtDescripcion.getText());
+        String imagen=txtImagen.getText().trim();
+
+        /* Establece la ruta de la imagen si se proporciona, de lo contrario la deja como null. */
+        if (!imagen.isEmpty()) {
+            String rutaImagen = "/images/peliculas/"+imagen;
+            pelicula.setImagen(rutaImagen);
+        } else {
+            pelicula.setImagen(null);
+        }
 
         try {
             peliculaDao.guardar(pelicula);

@@ -27,6 +27,9 @@
                        fitWidth="180"
                        preserveRatio="true"
                        smooth="true"/>
+            <Label fx:id="lblImagenNoDisponible"
+                   text="Imagen no disponible"
+                   style="-fx-text-fill: gray; -fx-font-style: italic;"/>
         </VBox>
     </left>
 

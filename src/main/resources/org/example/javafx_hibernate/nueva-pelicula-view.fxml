@@ -38,6 +38,10 @@
 
                 <Label text="Descripción:" GridPane.rowIndex="4" GridPane.columnIndex="0" GridPane.valignment="TOP"/>
                 <TextArea fx:id="txtDescripcion" prefRowCount="3" wrapText="true" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                <Label text="Imagen (archivo):" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtImagen" GridPane.rowIndex="5" GridPane.columnIndex="1"
+                           promptText="matrix.jpg"/>
+
             </children>
         </GridPane>
 
