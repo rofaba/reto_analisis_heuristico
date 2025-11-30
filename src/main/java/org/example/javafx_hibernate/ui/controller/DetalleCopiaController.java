@@ -79,6 +79,7 @@ public class DetalleCopiaController {
 
                 Image img = new Image(is);   // InputStream
                 ivImagen.setImage(img);
+                lblImagenNoDisponible.setVisible(false);
 
             } catch (Exception e) {
                 e.printStackTrace();
