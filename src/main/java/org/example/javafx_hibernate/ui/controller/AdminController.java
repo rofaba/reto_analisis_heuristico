@@ -54,6 +54,9 @@ public class AdminController implements Initializable {
         cargarPeliculas();
         configurarFiltro();
     }
+/*    * Carga las películas desde la base de datos y las asigna a la tabla.
+     * Configura la lista filtrada para que la tabla siempre muestre los datos filtrados.
+ */
 
     private void cargarPeliculas() {
         // carga desde BD
@@ -66,6 +69,11 @@ public class AdminController implements Initializable {
         tvPeliculas.setItems(peliculasFiltradas);
     }
 
+/*    * Maneja el evento de agregar una nueva película.
+     * Abre una nueva ventana para ingresar los detalles de la película.
+     * Después de cerrar la ventana, recarga la lista de películas.
+ */
+
     @FXML
     public void onNuevaPelicula() {
         try {
@@ -76,7 +84,6 @@ public class AdminController implements Initializable {
             stage.setScene(new Scene(loader.load()));
 
             stage.showAndWait();
-            // aquí ya “recargas la tabla”
             cargarPeliculas();
 
         } catch (IOException e) {
@@ -93,7 +100,9 @@ public class AdminController implements Initializable {
             e.printStackTrace();
         }
     }
-
+/*    * Configura el filtro para la búsqueda de películas en la tabla.
+     * Actualiza la lista filtrada según el texto ingresado en el campo de búsqueda.
+ */
     private void configurarFiltro() {
         txtBuscar.textProperty().addListener((obs, oldValue, newValue) -> {
             String filtro = (newValue == null) ? "" : newValue.trim().toLowerCase();

@@ -5,7 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.example.javafx_hibernate.service.AuthService;
-
+import javafx.application.Platform;
 import java.io.IOException;
 
 public class MainApp extends Application {
@@ -22,6 +22,12 @@ public class MainApp extends Application {
         primaryStage = stage;
         primaryStage.setTitle("Películas - Login");
         setRoot("login-view");
+
+        primaryStage.setOnCloseRequest(event -> {
+            Platform.exit();
+            System.exit(0);
+        });
+
         primaryStage.show();
     }
 
