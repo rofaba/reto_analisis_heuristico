@@ -1,5 +1,6 @@
 package org.example.javafx_hibernate.service;
 
+import javafx.scene.control.Alert;
 import org.example.javafx_hibernate.dao.UsuarioDao;
 import org.example.javafx_hibernate.dao.UsuarioRepository;
 import org.example.javafx_hibernate.entity.Usuario;
@@ -50,4 +51,22 @@ public class AuthService {
     public void logout() {
         this.usuarioActual = null;
     }
+
+    public boolean comprobarConexion() {
+        try {
+            // Intentar abrir una sesión para comprobar la conexión
+            usuarioDao.buscarPorNombreYPassword("", "");
+            return true;
+        } catch (Exception e) {
+            mostrarAlerta(Alert.AlertType.ERROR, "Error al comprobar conexion");
+            return false;
+        }
+    }
+    private void mostrarAlerta(Alert.AlertType tipo, String mensaje) {
+        Alert alert = new Alert(tipo);
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
+    }
 }
+

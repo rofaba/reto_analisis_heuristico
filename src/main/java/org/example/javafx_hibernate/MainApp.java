@@ -39,6 +39,15 @@ public class MainApp extends Application {
         primaryStage.setScene(scene);
         primaryStage.sizeToScene();
     }
+    //crear funcion que compruebe la conexion con la bae de datos
+    public static boolean comprobarConexionBD() {
+        try {
+            return authService.comprobarConexion();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 
 
     public static void main(String[] args) {
