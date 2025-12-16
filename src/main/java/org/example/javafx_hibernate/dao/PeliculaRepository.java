@@ -74,4 +74,10 @@ public class PeliculaRepository implements PeliculaDao {
 
         return deletedCount;
     }
+    public int eliminarPelicula(Long id) {
+        int result = deleteById(id);
+        if (result == 0) {
+            throw new RuntimeException("No se encontró la película con ID: " + id);
+        }
+    return result;}
 }

@@ -8,10 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -22,6 +19,7 @@ import org.example.javafx_hibernate.entity.Pelicula;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class AdminController implements Initializable {
@@ -122,7 +120,42 @@ public class AdminController implements Initializable {
             }
         });
     }
+/*    * Maneja el evento de eliminar una película seleccionada en la tabla.
+     * Muestra una confirmación antes de eliminar y maneja errores si la eliminación falla.
+ */
 
+@FXML
+public void onEliminarPelicula() {
+    Pelicula seleccion = tvPeliculas.getSelectionModel().getSelectedItem();
+    if (seleccion == null) {
+        Alert aviso = new Alert(Alert.AlertType.WARNING);
+        aviso.setTitle("Eliminar Película");
+        aviso.setHeaderText(null);
+        aviso.setContentText("Seleccione una película para eliminar.");
+        aviso.showAndWait();
+        return;
+    }
 
+    Alert confirm = new Alert(Alert.AlertType.CONFIRMATION);
+    confirm.setTitle("Confirmar eliminación");
+    confirm.setHeaderText(null);
+    confirm.setContentText("¿Desea eliminar la película \"" + seleccion.getTitulo() + "\"?");
+
+    Optional<ButtonType> respuesta = confirm.showAndWait();
+    if (respuesta.isPresent() && respuesta.get() == ButtonType.OK) {
+        try {
+            peliculaDao.deleteById(seleccion.getId());
+            peliculas.remove(seleccion);
+        } catch (Exception e) {
+            Alert error = new Alert(Alert.AlertType.ERROR);
+            error.setTitle("Error");
+            error.setHeaderText(null);
+            error.setContentText("No se pudo eliminar la película.");
+            error.showAndWait();
+        }
+    }
 }
+}
+
+
 

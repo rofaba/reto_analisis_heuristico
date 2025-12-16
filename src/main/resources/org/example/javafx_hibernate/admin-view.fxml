@@ -67,7 +67,8 @@
                     -fx-padding: 4;">
             <items>
                 <Button text="Nueva Película" onAction="#onNuevaPelicula"/>
-            </items>
+                    <Button fx:id="btnEliminar" text="Eliminar Película" onAction="#onEliminarPelicula"/>
+                </items>
         </ToolBar>
     </bottom>
 

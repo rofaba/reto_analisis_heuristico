@@ -10,4 +10,5 @@ import java.util.List;
 public interface PeliculaDao {
     void guardar(Pelicula pelicula);
     List<Pelicula> listarTodas();
+    int deleteById(Long id);
 }

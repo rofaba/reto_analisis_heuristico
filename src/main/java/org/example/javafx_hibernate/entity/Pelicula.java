@@ -12,7 +12,7 @@ public class Pelicula {
  */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     private String titulo;
     private String genero;
@@ -28,7 +28,7 @@ public class Pelicula {
     private Set<Copia> copias = new HashSet<>();
 
     // Getters y setters
-    public Integer getId() { return id; }
+    public  Long getId() { return id; }
 
     public String getTitulo() { return titulo; }
     public void setTitulo(String titulo) { this.titulo = titulo; }
