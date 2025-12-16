@@ -72,7 +72,7 @@ public class MainController {
         Usuario u = MainApp.getAuthService().getUsuarioActual();
         if (u != null) {
             lblBienvenida.setText("Bienvenido, " + u.getNombreUsuario() + " (" + u.getRol() + ")");
-            lblBienvenida.setStyle("-fx-font-size: 30px; -fx-font-weight: bold; -fx-text-fill: #222;");
+            lblBienvenida.setStyle("-fx-font-size: 30px; -fx-font-weight: bold; -fx-text-fill: white;");
             lblBienvenida.setWrapText(true);
             cargarCopias(u);
         }

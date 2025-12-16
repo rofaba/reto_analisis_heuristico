@@ -27,9 +27,10 @@
             <children>
                 <Label fx:id="lblBienvenida" layoutX="128.0" layoutY="4.0" text="Bienvenido"
                        style="-fx-background-color: rgba(255,255,255,0.9);
-              -fx-padding: 15;
-              -fx-background-radius: 5;
-              -fx-font-size: 32x;"/>
+                -fx-padding: 15;
+                -fx-background-radius: 5;
+                -fx-font-size: 32x;
+                -fx-text-fill: COLOR.white;"/>
             </children></Pane>
             <Button onAction="#onCerrarSesion" text="Cerrar sesión"
                    />
@@ -49,10 +50,12 @@
     <bottom>
         <ToolBar prefHeight="40.0" BorderPane.alignment="CENTER"
                  style="-fx-background-image: url('/images/fondos/2358.jpg');
+
                     -fx-background-size: cover;
                     -fx-background-position: center center;
                     -fx-background-repeat: no-repeat;
                     -fx-padding: 4;">
+
             <items>
                 <Button fx:id="btnNuevaCopia" text="Añadir copia" onAction="#onNuevaCopia"/>
                 <Button fx:id="btnEditarCopia" text="Editar copia" onAction="#onEditarCopia"/>
