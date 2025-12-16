@@ -11,7 +11,7 @@
             jdbc:mysql://127.0.0.1:3306/peliculasdb?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=UTC
         </property>
         <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password">user123</property>
+        <property name="hibernate.connection.password">123456789</property>
 
         <!-- Dialecto -->
         <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>

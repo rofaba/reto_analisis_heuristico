@@ -50,6 +50,10 @@ public class MainController {
     @FXML
     private Button btnEliminarCopia;
 
+    @FXML
+    private TextField txtTotalPeliculas;
+
+
     private final CopiaDao copiaDao = new CopiaRepository();
 
     @FXML
@@ -102,6 +106,8 @@ public class MainController {
             System.out.println("Copias encontradas para " + usuario.getNombreUsuario() +
                     ": " + copias.size());
             tvCopias.setItems(FXCollections.observableArrayList(copias));
+            txtTotalPeliculas.setText("Total de copias: " + copias.size());
+
         } catch (Exception e) {
             e.printStackTrace();
 

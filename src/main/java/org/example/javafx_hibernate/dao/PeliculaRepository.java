@@ -15,16 +15,29 @@ public class PeliculaRepository implements PeliculaDao {
 
     @Override
     public void guardar(Pelicula pelicula) {
-        Transaction tx = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            tx = session.beginTransaction();
-            session.save(pelicula);
-            tx.commit();
-        } catch (Exception e) {
-            if (tx != null) tx.rollback();
-            e.printStackTrace();
+            Long count = session.createQuery(
+                            "SELECT count(p) FROM Pelicula p WHERE p.titulo = :titulo", Long.class)
+                    .setParameter("titulo", pelicula.getTitulo())
+                    .uniqueResult();
+
+            if (count != null && count > 0) {
+                System.out.println("La película con título \"" + pelicula.getTitulo() + "\" ya existe. No se guardará.");
+                return;
+            }
+
+            Transaction tx = null;
+            try {
+                tx = session.beginTransaction();
+                session.save(pelicula);
+                tx.commit();
+            } catch (Exception e) {
+                if (tx != null) tx.rollback();
+                e.printStackTrace();
+            }
         }
     }
+```
 /*
      * Lista todas las películas en la base de datos.
      */

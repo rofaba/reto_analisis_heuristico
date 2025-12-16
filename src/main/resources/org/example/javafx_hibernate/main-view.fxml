@@ -4,36 +4,23 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 
-<BorderPane prefHeight="567.0" prefWidth="653.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/24.0.1" fx:controller="org.example.javafx_hibernate.ui.controller.MainController">
+<BorderPane prefHeight="567.0" prefWidth="653.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.javafx_hibernate.ui.controller.MainController">
 
     <top>
-        <ToolBar
-                style="-fx-background-image: url('/images/fondos/2358.jpg');
-                   -fx-background-size: cover;
-                   -fx-background-position: center center;
-                    -fx-background-repeat: no-repeat;
-                    -fx-padding: 4;">
+        <ToolBar style="-fx-background-image: url('/images/fondos/2358.jpg');                    -fx-background-size: cover;                    -fx-background-position: center center;                     -fx-background-repeat: no-repeat;                     -fx-padding: 4;">
 
-            <Label text="Catálogo de copias de películas"
-                   style="-fx-background-color: rgba(255,255,255,0.9);
-                     -fx-padding: 15;
-                     -fx-background-radius: 5;"/>
+            <Label style="-fx-background-color: rgba(255,255,255,0.9);                      -fx-padding: 15;                      -fx-background-radius: 5;" text="Catálogo de copias de películas" />
             <Pane HBox.hgrow="ALWAYS">
             <children>
-                <Label fx:id="lblBienvenida" layoutX="128.0" layoutY="4.0" text="Bienvenido"
-                       style="-fx-background-color: rgba(255,255,255,0.9);
-                -fx-padding: 15;
-                -fx-background-radius: 5;
-                -fx-font-size: 32x;
-                -fx-text-fill: COLOR.white;"/>
+                <Label fx:id="lblBienvenida" layoutX="128.0" layoutY="4.0" style="-fx-background-color: rgba(255,255,255,0.9);                 -fx-padding: 15;                 -fx-background-radius: 5;                 -fx-font-size: 32x;                 -fx-text-fill: COLOR.white;" text="Bienvenido" />
             </children></Pane>
-            <Button onAction="#onCerrarSesion" text="Cerrar sesión"
-                   />
+            <Button onAction="#onCerrarSesion" text="Cerrar sesión" />
         </ToolBar>
     </top>
    <center>
@@ -48,18 +35,13 @@
 
    </center>
     <bottom>
-        <ToolBar prefHeight="40.0" BorderPane.alignment="CENTER"
-                 style="-fx-background-image: url('/images/fondos/2358.jpg');
-
-                    -fx-background-size: cover;
-                    -fx-background-position: center center;
-                    -fx-background-repeat: no-repeat;
-                    -fx-padding: 4;">
+        <ToolBar prefHeight="40.0" style="-fx-background-image: url('/images/fondos/2358.jpg');                      -fx-background-size: cover;                     -fx-background-position: center center;                     -fx-background-repeat: no-repeat;                     -fx-padding: 4;" BorderPane.alignment="CENTER">
 
             <items>
-                <Button fx:id="btnNuevaCopia" text="Añadir copia" onAction="#onNuevaCopia"/>
-                <Button fx:id="btnEditarCopia" text="Editar copia" onAction="#onEditarCopia"/>
-                <Button fx:id="btnEliminarCopia" text="Eliminar copia" onAction="#onEliminarCopia"/>
+                <Button fx:id="btnNuevaCopia" onAction="#onNuevaCopia" text="Añadir copia" />
+                <Button fx:id="btnEditarCopia" onAction="#onEditarCopia" text="Editar copia" />
+                <Button fx:id="btnEliminarCopia" onAction="#onEliminarCopia" text="Eliminar copia" />
+            <TextField fx:id="txtTotalPeliculas" />
 
             </items>
         </ToolBar>
